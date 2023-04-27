@@ -1,7 +1,7 @@
 FROM ruby:3.1.4
 RUN apt-get update -qq && apt-get install -y postgresql-client vim zsh
-RUN mkdir /rails-postgres
-ENV APP_ROOT /rails-postgres
+RUN mkdir /app-name
+ENV APP_ROOT /app-name
 WORKDIR $APP_ROOT
 ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
