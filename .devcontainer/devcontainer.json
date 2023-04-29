@@ -1,0 +1,39 @@
+{
+  "name": "Existing Docker Compose (Extend)",
+
+  // Update the 'dockerComposeFile' list if you have more compose files or use different names.
+  // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+
+  // The 'service' property is the name of the service for the container that VS Code should
+  // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+  "service": "web",
+
+  // The optional 'workspaceFolder' property is the path VS Code should open by default when
+  "workspaceFolder": "/workspace",
+
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "bash (login)": {
+        "path": "bash",
+        "args": ["-l"]
+      }
+    },
+    "plantuml": {
+      "diagramsRoot": "documents",
+      "exportFormat": "svg",
+      "exportOutDir": "documents/er-diagrams",
+      "exportSubFolder": false,
+      "render": "PlantUMLServer",
+      "server": "https://www.plantuml.com/plantuml"
+    }
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "rebornix.ruby",
+    "kaiwood.endwise",
+    "sibiraj-s.vscode-scss-formatter",
+    "jebbs.plantuml"
+  ]
+}

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    volumes:
+      - ..:/workspaces:cached
+      - ~/.ssh:/root/.ssh
+    command: /bin/sh -c "rm -f tmp/pids/server.pid; while sleep 1000; do :; done"

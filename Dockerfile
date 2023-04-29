@@ -1,4 +1,4 @@
-FROM ruby:3.1.4
+FROM ruby:3.1.0
 RUN apt-get update -qq && apt-get install -y postgresql-client vim zsh
 RUN mkdir /app-name
 ENV APP_ROOT /app-name
