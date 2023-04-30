@@ -10,7 +10,7 @@
   "service": "web",
 
   // The optional 'workspaceFolder' property is the path VS Code should open by default when
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
   "settings": {
     "terminal.integrated.profiles.linux": {
@@ -31,6 +31,7 @@
 
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
+    "KoichiSasada.vscode-rdbg",
     "rebornix.ruby",
     "kaiwood.endwise",
     "sibiraj-s.vscode-scss-formatter",
