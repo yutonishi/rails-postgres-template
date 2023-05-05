@@ -1,24 +1,47 @@
-# README
+# 前提
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+以下のアプリ、および拡張機能がインストールされていることを前提としています。
 
-Things you may want to cover:
 
-* Ruby version
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+<br>
+<br>
+# 開発環境構築
 
-* System dependencies
+## リポジトリをクローン
+```
+$ git clone git@github.com:yutonishi/rails-postgres-template.git
+$ cd rails-postgres-template
+```
+<br>
 
-* Configuration
+## ビルド
+```
+$ docker compose build
+$ docker compose run web yarn install
+```
+<br>
 
-* Database creation
+## Remote Containerに入る（コンテナの起動）
+本ディレクトリをVSCodeで開き、「緑のマーク」 > 「Reopen in Container」でRemote Containerに入る。
+<br>
+これで各コンテナが起動する。
 
-* Database initialization
+<br>
 
-* How to run the test suite
+## データベースを作成
+```
+# rails db:create db:migrate db:seed
+```
+<br>
 
-* Services (job queues, cache servers, search engines, etc.)
+## Rails Serverを起動
+Remote Container内で下記を実行するとRails Serverが起動すると同時に、Webpackのコンパイルが実行される。
+```
+# bin/dev
+```
+<br>
 
-* Deployment instructions
-
-* ...
+[http://0.0.0.0:3000](http://0.0.0.0:3000)にアクセスできることを確認する。
