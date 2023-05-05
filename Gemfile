@@ -13,6 +13,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "dotenv-rails"
 gem 'factory_bot_rails'
+gem 'jsbundling-rails'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
