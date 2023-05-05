@@ -1,11 +1,27 @@
 const path    = require("path")
 const webpack = require("webpack")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
 module.exports = {
   mode: "production",
   devtool: "source-map",
   entry: {
-    application: "./app/javascript/application.js"
+    application: [
+      './app/javascript/entry/application.js',
+      './app/javascript/entry/application.scss'
+    ]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(?:sa|sc|c)ss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.scss', '.css'],
   },
   output: {
     filename: "[name].js",
@@ -15,6 +31,8 @@ module.exports = {
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
-    })
+    }),
+    new RemoveEmptyScriptsPlugin(),
+    new MiniCssExtractPlugin(),
   ]
 }
