@@ -4,8 +4,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client yarn vim zsh
 RUN npm install n -g 
 RUN n 14
-RUN mkdir /app-name
-ENV APP_ROOT /app-name
+RUN mkdir /rails-postgres-template
+ENV APP_ROOT /rails-postgres-template
 WORKDIR $APP_ROOT
 ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock

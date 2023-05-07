@@ -16,7 +16,7 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - .:/app-name
+      - .:/rails-postgres-template
     ports:
       - "3000:3000"
     depends_on:
